@@ -1,32 +1,48 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <v-app>
+    <v-app-bar
+      app
+      color="primary"
+      dark
+    >
+      <v-toolbar-title>Departures Configurator</v-toolbar-title>
+      <v-spacer />
+
+      <v-btn
+        v-if="!$auth.isAuthenticated"
+        target="_blank"
+        text
+        @click="$auth.loginWithRedirect()"
+      >
+        <span class="mr-2">Sign In</span>
+        <v-icon>mdi-login</v-icon>
+      </v-btn>
+      <v-btn
+        v-else
+        target="_blank"
+        text
+        @click="$auth.logout({returnTo: 'http://localhost:8080'})"
+      >
+        <span class="mr-2">Log Out</span>
+        <v-icon>mdi-logout</v-icon>
+      </v-btn>
+    </v-app-bar>
+
+    <v-main>
+      <router-view />
+    </v-main>
+  </v-app>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+export default {
+  name: 'App',
 
-#nav {
-  padding: 30px;
-}
+  components: {
+  },
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+  data: () => ({
+    //
+  })
 }
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+</script>
