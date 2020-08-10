@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@auth0/auth0-spa-js": "^1.11.0",
+    "@serverless-jwt/netlify": "^0.2.0",
     "core-js": "^3.6.5",
     "dotenv": "^8.2.0",
     "vue": "^2.6.11",
