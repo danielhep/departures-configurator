@@ -9,6 +9,7 @@ Vue.config.productionTip = false
 Vue.use(Auth0Plugin, {
   domain: process.env.VUE_APP_AUTH0_DOMAIN,
   clientId: process.env.VUE_APP_AUTH0_CLIENTID,
+  audience: 'configurator-api',
   onRedirectCallback: appState => {
     router.push(
       appState && appState.targetUrl

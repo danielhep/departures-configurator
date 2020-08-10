@@ -33,7 +33,9 @@
 
 <script>
 export default {
-
+  async mounted () {
+    this.$store.dispatch('getConfigurations', await this.$auth.getTokenSilently())
+  }
 }
 </script>
 

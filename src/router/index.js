@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import DisplayList from '../views/DisplayList.vue'
+import { authGuard } from '../auth/authGuard'
 Vue.use(VueRouter)
 
 const routes = [
@@ -13,7 +14,8 @@ const routes = [
   {
     path: '/list',
     name: 'DisplayList',
-    component: DisplayList
+    component: DisplayList,
+    beforeEnter: authGuard
   }
 ]
 
