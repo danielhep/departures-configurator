@@ -21,7 +21,7 @@
         v-else
         target="_blank"
         text
-        @click="$auth.logout({returnTo: 'http://localhost:8080'})"
+        @click="$auth.logout({returnTo: 'http://localhost:8888'})"
       >
         <span class="mr-2">Log Out</span>
         <v-icon>mdi-logout</v-icon>

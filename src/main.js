@@ -3,21 +3,11 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import vuetify from './plugins/vuetify'
-import { Auth0Plugin } from './auth'
+// import './registerServiceWorker'
+import { firestorePlugin } from 'vuefire'
 
 Vue.config.productionTip = false
-Vue.use(Auth0Plugin, {
-  domain: process.env.VUE_APP_AUTH0_DOMAIN,
-  clientId: process.env.VUE_APP_AUTH0_CLIENTID,
-  audience: 'configurator-api',
-  onRedirectCallback: appState => {
-    router.push(
-      appState && appState.targetUrl
-        ? appState.targetUrl
-        : window.location.pathname
-    )
-  }
-})
+Vue.use(firestorePlugin)
 
 new Vue({
   router,

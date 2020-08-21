@@ -19,7 +19,8 @@ export default new Vuex.Store({
           Authorization: `Bearer ${token}`
         }
       })
-      console.log(res)
+      const out = await res.text()
+      console.log(out)
     }
   },
   modules: {
