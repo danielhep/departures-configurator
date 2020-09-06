@@ -32,9 +32,10 @@
 </template>
 
 <script>
+import firebase from 'firebase'
 export default {
   async mounted () {
-    this.$store.dispatch('getConfigurations', await this.$auth.getTokenSilently())
+    this.$store.dispatch('getConfigurations', await firebase.auth().currentUser.getIdToken())
   }
 }
 </script>

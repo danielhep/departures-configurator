@@ -5,6 +5,7 @@ import store from './store'
 import vuetify from './plugins/vuetify'
 // import './registerServiceWorker'
 import { firestorePlugin } from 'vuefire'
+import './firebase/index.js'
 
 Vue.config.productionTip = false
 Vue.use(firestorePlugin)
